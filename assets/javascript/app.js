@@ -1,17 +1,17 @@
-// window.onload = function() {
-//   $("#start").on("click", start);
-// };
+window.onload = function() {
+  $("#start").on("click", start);
+};
 
 var intervalId;
 
 var clockRunning = false;
-var timeLeft;
+var timeLeft = 1000 * 60;
 
 function start() {
   if (!clockRunning) {
-    intervalId = setInterval(count, -1000);
     clockRunning = true;
-    $(".time-remaining").text(timeLeft);
+    var myTimer = setInterval(timeLeft, -1000);
+    var time = $("#time").text("Time Remaining: " + timeLeft);
   }
 }
 //timesUp function
