@@ -1,6 +1,7 @@
 .banner {
   height: 900px;
   width: 100%;
+  color: rgb(65, 121, 184);
   max-height: 50%;
   max-width: 100%;
   min-height: 20%;
@@ -8,6 +9,20 @@
   background-image: url("../images/clueless.jpeg");
   background-size: cover;
 }
-background-image {
-  opacity: 0.5;
+li,
+#start,
+#time {
+  padding: 10px;
+  margin: 10px;
+  text-decoration: none; /*not working :( */
+  background: rgb(
+    204,
+    204,
+    204
+  ); /* Fallback for older browsers without RGBA-support */
+  background: rgba(204, 204, 204, 0.5);
+  /*link to resource- https://stackoverflow.com/questions/15449280/html-css-text-background-transparent-but-text-not*/
+}
+li {
+  color: black;
 }
