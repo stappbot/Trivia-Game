@@ -46,6 +46,10 @@ function finish() {
     result();
   }
 }
+function result() {
+  //for each question (1-4), if value equals "correct" then add to points*25 to equal 100%
+  $(".result").show();
+}
 
 if (timeLeft === 0) {
   timesUp = setTimeout(function() {
