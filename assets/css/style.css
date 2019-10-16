@@ -23,6 +23,7 @@ li,
   background: rgba(204, 204, 204, 0.5);
   /*link to resource- https://stackoverflow.com/questions/15449280/html-css-text-background-transparent-but-text-not*/
 }
-li {
+li,
+#time {
   color: black;
 }
