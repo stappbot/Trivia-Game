@@ -11,6 +11,7 @@ var timeLeft = 60;
 
 function start() {
   if (!clockRunning) {
+    $(".result").hide();
     clockRunning = true;
     intervalId = setInterval(countdown, 1000);
   }
@@ -22,6 +23,7 @@ function countdown() {
     stop();
     clockRunning = false;
     $("#finish").hide();
+    $(".questions-box").hide();
     $("#time").text("You don't know Cher; you lose!");
   }
 }
@@ -39,7 +41,9 @@ function finish() {
     $("#finish").hide();
     $("#start").hide();
     $("#time").hide();
-    result;
+    $(".question-box").hide();
+    stop();
+    result();
   }
 }
 
