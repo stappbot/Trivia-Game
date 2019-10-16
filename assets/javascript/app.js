@@ -5,15 +5,28 @@ window.onload = function() {
 var intervalId;
 
 var clockRunning = false;
-var timeLeft = 1000 * 60;
+var timeLeft = 60;
 
 function start() {
   if (!clockRunning) {
     clockRunning = true;
-    var myTimer = setInterval(timeLeft, -1000);
-    var time = $("#time").text("Time Remaining: " + timeLeft);
+    intervalId = setInterval(countdown, 1000);
   }
 }
+function countdown() {
+  timeLeft--;
+  $("#time").text("Time Remaining: " + timeLeft);
+  if (timeLeft === 0) {
+    stop();
+    clockRunning = false;
+    alert("Times up!");
+  }
+}
+
+function stop() {
+  clearInterval(intervalId);
+}
+
 //timesUp function
 // var timesUp = function() {
 //     if ()
