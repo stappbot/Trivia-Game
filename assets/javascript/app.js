@@ -17,9 +17,10 @@ function countdown() {
   timeLeft--;
   $("#time").text("Time Remaining: " + timeLeft);
   if (timeLeft === 0) {
-    stop();
+    setTimeout(stop, 1000);
     clockRunning = false;
-    alert("Times up!");
+  }
+  if (timeLeft !== 0) {
   }
 }
 function reset() {
@@ -27,6 +28,7 @@ function reset() {
   $("#time").text("Time Remaining: " + timeLeft);
 }
 function stop() {
+  alert("Times up!");
   clearInterval(intervalId);
 }
 
