@@ -22,7 +22,10 @@ function countdown() {
     alert("Times up!");
   }
 }
-
+function reset() {
+  timeLeft = 60;
+  $("#time").text("Time Remaining: " + timeLeft);
+}
 function stop() {
   clearInterval(intervalId);
 }
