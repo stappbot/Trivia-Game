@@ -1,8 +1,10 @@
 window.onload = function() {
   $("#start").on("click", start);
+  $("#finish").on("click", finish);
 };
 
 var intervalId;
+var result;
 
 var clockRunning = false;
 var timeLeft = 60;
@@ -17,10 +19,9 @@ function countdown() {
   timeLeft--;
   $("#time").text("Time Remaining: " + timeLeft);
   if (timeLeft === 0) {
-    setTimeout(stop, 1000);
+    stop();
     clockRunning = false;
-  }
-  if (timeLeft !== 0) {
+    $("#finish").hide();
   }
 }
 function reset() {
@@ -30,6 +31,15 @@ function reset() {
 function stop() {
   alert("Times up!");
   clearInterval(intervalId);
+}
+function finish() {
+  if (clockRunning) {
+    clockRunning = false;
+    $("#finish").hide();
+    $("#start").hide();
+    $("#time").hide();
+    result;
+  }
 }
 
 //timesUp function
