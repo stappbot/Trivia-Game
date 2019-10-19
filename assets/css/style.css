@@ -6,12 +6,13 @@
   max-width: 100%;
   min-height: 20%;
   min-width: 30%;
-  background-image: url("../images/clueless.jpeg");
+  /* background-image: url("../images/clueless.jpeg"); */
   background-size: cover;
 }
 li,
 #start,
-#time {
+#time,
+.result {
   padding: 10px;
   margin: 10px;
   text-decoration: none; /*not working :( */
@@ -24,6 +25,8 @@ li,
   /*link to resource- https://stackoverflow.com/questions/15449280/html-css-text-background-transparent-but-text-not*/
 }
 li,
-#time {
+#time,
+.result {
   color: black;
+  list-style: none;
 }

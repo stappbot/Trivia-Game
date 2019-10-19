@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Trivia Game</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css" /> -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -14,122 +14,74 @@
     />
   </head>
   <body>
-    <div class="jumbotron jumbotron-fluid banner">
-      <div class="container">
-        <h1 class="display-4">Like Totally Trivial Trivia!</h1>
-        <p class="lead">This is a Clueless movie trivia game.</p>
-      </div>
-      <hr />
+    <div class="container">
+      <div class="row">
+        <div class="col-4 alert alert-info">
+          <h1>Like Totally Trivial Trivia!</h1>
+          <p>This is a Clueless movie trivia game.</p>
+          <p>
+            You have 60 seconds to answer all of the questions. Click Finish to
+            see your score.
+          </p>
+          <button id="start" class="btn btn-primary btn-lg">Start!</button>
+          <br />
+          <h3 id="time"></h3>
+          <img class="img-fluid" src="assets/images/clueless.jpeg" />
+        </div>
 
-      <div class="container">
-        <div class="row row-centered">
-          <div class="col-sm-3">
-            <p>
-              You have 60 seconds to answer all of the questions. Click Finish
-              to see if you won.
-            </p>
-            <button id="start">Start!</button>
-            <div class="row">
-              <div id="time">
-                <span class="time-remaining"></span>
-              </div>
-
-              <button id="finish">Finish!</button>
+        <div class="col-8 alert primary">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Who is Cher's best friend?</h5>
+              <input type="radio" name="question1" value="0" />Celine<br />
+              <input type="radio" name="question1" value="25" />Dionne<br />
+              <input type="radio" name="question1" value="0" />Selena<br />
+              <input type="radio" name="question1" value="0" />Madonna<br />
             </div>
           </div>
 
-          <div class="col-sm-12 col-lg-6 mx-auto question-box">
-            <li>
-              <h3>Who is Cher's best friend?</h3>
-              <input
-                type="radio"
-                name="question1"
-                value="incorrect"
-              />Celine<br />
-              <input
-                type="radio"
-                name="question1"
-                value="correct"
-              />Dionne<br />
-              <input
-                type="radio"
-                name="question1"
-                value="incorrect"
-              />Selena<br />
-              <input
-                type="radio"
-                name="question1"
-                value="incorrect"
-              />Madonna<br />
-            </li>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Which friend copied Cher's outfits?</h5>
+              <input type="radio" name="question2" value="0" />Brittany<br />
+              <input type="radio" name="question2" value="25" />Amber<br />
+              <input type="radio" name="question2" value="0" />Amy<br />
+              <input type="radio" name="question2" value="0" />Crystal<br />
+            </div>
           </div>
-          <div class="col-sm-12 col-lg-6 mx-auto question-box">
-            <li>
-              <h3>Which friend copied Cher's outfits?</h3>
-              <input
-                type="radio"
-                name="question2"
-                value="incorrect"
-              />Brittany<br />
-              <input type="radio" name="question2" value="correct" />Amber<br />
-              <input type="radio" name="question2" value="incorrect" />Amy<br />
-              <input
-                type="radio"
-                name="question2"
-                value="incorrect"
-              />Crystal<br />
-            </li>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">What is Cher's dad's profession?</h5>
+              <input type="radio" name="question3" value="25" />Lawyer<br />
+              <input type="radio" name="question3" value="0" />Doctor<br />
+              <input type="radio" name="question3" value="0" />Senator<br />
+              <input type="radio" name="question3" value="0" />Teacher<br />
+            </div>
           </div>
-          <div class="col-sm-12 col-lg-6 mx-auto question-box">
-            <li>
-              <h3>What is Cher's dad's profession?</h3>
-              <input
-                type="radio"
-                name="question3"
-                value="correct"
-              />Lawyer<br />
-              <input
-                type="radio"
-                name="question3"
-                value="incorrect"
-              />Doctor<br />
-              <input
-                type="radio"
-                name="question3"
-                value="incorrect"
-              />Senator<br />
-              <input
-                type="radio"
-                name="question3"
-                value="incorrect"
-              />Teacher<br />
-            </li>
-          </div>
-          <div class="col-sm-12 col-lg-6 mx-auto question-box">
-            <li>
-              <h3>What movie did Cher's crush bring over to watch?</h3>
-              <input type="radio" name="question4" value="incorrect" />A Street
-              Car Named Desire<br />
-              <input type="radio" name="question4" value="incorrect" />Arsenic
-              and Old Lace<br />
-              <input
-                type="radio"
-                name="question4"
-                value="incorrect"
-              />Casablance<br />
-              <input type="radio" name="question4" value="correct" />Ben Hur<br />
-            </li>
-            <article class="col-sm-12 col-lg-6 mx-auto result"></article>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                What movie did Cher's crush bring over to watch?
+              </h5>
+              <input type="radio" name="question4" value="0" />A Street Car
+              Named Desire<br />
+              <input type="radio" name="question4" value="0" />Arsenic and Old
+              Lace<br />
+              <input type="radio" name="question4" value="0" />Casablance<br />
+              <input type="radio" name="question4" value="25" />Ben Hur<br />
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <script src="assets/javascript/app.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
+    <script src="assets/javascript/app.js"></script>
   </body>
 </html>

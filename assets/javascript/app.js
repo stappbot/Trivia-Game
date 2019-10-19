@@ -1,60 +1,69 @@
-window.onload = function() {
-  $("#start").on("click", start);
-  $("#finish").on("click", finish);
-};
+$(document).ready(function() {
+  let intervalId;
+  let score;
+  let gameOn = false;
+  let clockRunning = false;
+  let timeLeft = 40;
 
-var intervalId;
-var result;
-
-var clockRunning = false;
-var timeLeft = 60;
-
-function start() {
-  if (!clockRunning) {
-    $(".result").hide();
-    clockRunning = true;
-    intervalId = setInterval(countdown, 1000);
-  }
-}
-function countdown() {
-  timeLeft--;
-  $("#time").text("Time Remaining: " + timeLeft);
-  if (timeLeft === 0) {
-    stop();
+  function reset() {
+    $(".card").hide();
+    $("input:checked").each(function() {
+      $(this).prop("checked", false);
+    });
+    timeLeft = 40;
     clockRunning = false;
-    $("#finish").hide();
-    $(".questions-box").hide();
-    $("#time").text("You don't know Cher; you lose!");
+    $("#start").text("Start!");
+    gameOn = false;
   }
-}
-function reset() {
-  timeLeft = 60;
-  $("#time").text("Time Remaining: " + timeLeft);
-}
-function stop() {
-  alert("Times up!");
-  clearInterval(intervalId);
-}
-function finish() {
-  if (clockRunning) {
-    clockRunning = false;
-    $("#finish").hide();
-    $("#start").hide();
-    $("#time").hide();
-    $(".question-box").hide();
-    stop();
-    result();
+
+  function countdown() {
+    timeLeft--;
+    $("#time").text("Time Remaining: " + timeLeft);
+    if (timeLeft === 0) {
+      clearInterval(intervalId);
+      reset();
+
+      $("#time").html("You don't know Cher <br> you are a square!");
+    }
   }
-}
-function result() {
-  //for each question (1-4), if value equals "correct" then add to points*25 to equal 100%
-  $(".result").show();
-}
 
-if (timeLeft === 0) {
-  timesUp = setTimeout(function() {
-    alert("You don't know Cher and you have lost the game!");
-  }, 1000 * 60);
-}
+  function start() {
+    if (!clockRunning) {
+      clockRunning = true;
+      intervalId = setInterval(countdown, 1000);
+    }
+  }
 
+  function finish() {
+    if (clockRunning) {
+      reset();
+      clockRunning = false;
+      clearInterval(intervalId);
+      $("#time").text("Hey, you got: " + getResult() + "%. Woohoo!");
+    }
+  }
+
+  function getResult() {
+    let result = 0;
+    $("input:checked").each(function add() {
+      result += parseInt(this.value);
+    });
+    return result;
+  }
+
+  $(".card").hide();
+
+  $("#start").on("click", function() {
+    if (gameOn) {
+      gameOn = false;
+      $(this).text("Start!");
+      finish();
+    } else {
+      gameOn = true;
+      $(".card").show();
+      $(this).text("Finish!");
+      start();
+    }
+  });
+});
 //quiz resource code from stack overflow: https://stackoverflow.com/questions/28403558/multiple-choice-quiz-getting-score
