@@ -1,6 +1,6 @@
 $(document).ready(function() {
   let intervalId;
-  let score;
+  let result = 0;
   let gameOn = false;
   let clockRunning = false;
   let timeLeft = 40;
@@ -44,7 +44,7 @@ $(document).ready(function() {
   }
 
   function getResult() {
-    let result = 0;
+    result = 0;
     $("input:checked").each(function add() {
       result += parseInt(this.value);
     });
